@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Collection{% endblock %}
+
+{% block body %}
+    <h1>Create new Collection</h1>
+
+    {{ include('Admin/collection/_form.html.twig') }}
+
+    <a href="{{ path('admin_collection_list') }}" class="btn btn-info" role="button">back to list</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Payment{% endblock %}
+
+{% block body %}
+    <h1 class="h3 mb-3 font-weight-normal">Paiement</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Pay') }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin Homepage{% endblock %}
+
+{% block body %}
+
+
+    <h1>Dashboard</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Users</th>
+            <th>Collections</th>
+            <th>Produits</th>
+        </tr>
+        </thead>
+        <tbody>
+            <td><a href="{{ path('admin_user_list') }}" class="btn btn-info" role="button">C'est par ici !</a></td>
+            <td><a href="{{ path('admin_collection_list') }}" class="btn btn-warning" role="button">Par là !</a></td>
+            <td><a href="{{ path('admin_product_list') }}" class="btn btn-success" role="button">Ou bien par là !</a></td>
+        </tbody>
+
+    </table>
+
+
+{% endblock body %}

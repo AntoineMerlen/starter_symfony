@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche Produit{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom du produit</th>
+            <th>Description</th>
+            <th>Prix</th>
+            <th>Nombre de produit disponible</th>
+            <th>Mettre dans le panier</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.slug }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.stock }}</td>
+                <td><button id="add-to-cart">Add to cart</button></td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#add-to-cart').on('click', function(){
+                $.post("{{ path('add_cart_json') }}", {
+                    product_id: {{ product.id }},
+                    quantity: 1
+                } );
+            })
+        })
+    </script>
+{% endblock %}

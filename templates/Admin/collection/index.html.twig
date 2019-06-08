@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collection index{% endblock %}
+
+{% block body %}
+    <h1>Collection index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Slug</th>
+                <th>PictureUrl</th>
+                <th>DateAdd</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for collection in collections %}
+            <tr>
+                <td>{{ collection.id }}</td>
+                <td>{{ collection.name }}</td>
+                <td>{{ collection.slug }}</td>
+                <td>{{ collection.pictureUrl }}</td>
+                <td>{{ collection.dateAdd ? collection.dateAdd|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_collection_show', {'id': collection.id}) }}" class="btn btn-info" role="button">show</a>
+                    <a href="{{ path('admin_collection_edit', {'id': collection.id}) }}" class="btn btn-success" role="button">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_collection_new') }}" class="btn btn-info" role="button">Create new</a>
+{% endblock %}

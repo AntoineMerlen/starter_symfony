@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Collections{% endblock %}
+
+{% block body %}
+    <h1>Liste des Collections</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Date de création</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for collection in collections %}
+            <tr>
+                <td>{{ collection.id }}</td>
+                <td>{{ collection.name }}</td>
+                <td>{{ collection.slug }}</td>
+                <td>{{ collection.pictureUrl }}</td>
+                <td>{{ collection.dateAdd ? collection.dateAdd|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
