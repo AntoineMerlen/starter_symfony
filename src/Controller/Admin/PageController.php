@@ -47,4 +47,12 @@ class PageController extends AbstractController
     {
         return $this->render('Admin/pages/profile.html.twig');
     }
+
+    /**
+     * @Route("/google-map", name="admin_page_google-map")
+     */
+    public function googleMap()
+    {
+        return $this->render('Admin/pages/google-map.html.twig');
+    }
 }

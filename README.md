@@ -2,13 +2,13 @@
 
 
 
-#### Configure Server
+### Configure Server
 ```bash
 - Change .env/.test to local test
 - Change .env to connect with your Database
 ```
 
-#### Installation
+### Installation
 ```bash
 - git clone 
 - composer install
@@ -16,19 +16,19 @@
 - PHP >= 7.1
 ```
 
-#### Run this project
+### Run this project
 ```bash
 - php bin/console server:run
 ```
 
-#### Create & update of the BDD
+### Create & update of the BDD
 ```bash
 - php bin/console doctrine:database:create
-- php bin/console doctrine:schema:update --force
+- php bin/console d:s:u --dump-sql
+- php bin/console d:s:u --force
 ```
 
-#### If you need add fixtures
+### If you need add fixtures
 ```bash
-- run this command
-    `php bin/console doctrine:fixtures:load`
+- php bin/console doctrine:fixtures:load
 ```
